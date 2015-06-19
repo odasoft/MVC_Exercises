@@ -1,0 +1,18 @@
+﻿body {
+}
+#header {
+    background-color: grey;
+    font-family:Verdana;
+    font-size:larger;
+    margin-top:auto;
+    margin-left:auto;
+    margin-right:auto;
+}
+#footer{
+    text-align:center;
+    background-color:lightgray;
+    font-family:Verdana;
+    font-size:small;
+    position:absolute; bottom:0;
+
+}
