@@ -17,8 +17,7 @@ namespace EjercicioViernes1_Plamex.Controllers
 
         public ActionResult MostrarLista()
         {
-            Person oPerson = new Person();
-            var lAsistencia = oPerson.GetList();
+            var lAsistencia = Person_Repository.GetList();
 
             if (TempData["ListaAsistencia"] != null)
             {
@@ -28,20 +27,20 @@ namespace EjercicioViernes1_Plamex.Controllers
                 {
                     lAsistencia.Add(item);
                 }
-
             }
 
             ViewBag.ListaAsistencia = lAsistencia;
             TempData["ListaAsistencia"] = lAsistencia;
+
+            //Este declaracion es automatica no se ocupa hacer
+            //TempData.Keep("ListaAsistencia");
 
             return View();
         }
 
         public ActionResult RedireccionarLista()
         {
-            Person oPerson = new Person();
-
-            var lAsistencia = oPerson.GetList();
+            var lAsistencia = Person_Repository.GetList();
 
             ViewBag.ListaAsistencia = lAsistencia;
 
@@ -57,6 +56,9 @@ namespace EjercicioViernes1_Plamex.Controllers
                 var ListaAsistencia = TempData["ListaAsistencia"] as List<Person>;
 
                 TempData["ListaAsistencia"] = ListaAsistencia;
+
+                //Este declaracion es automatica no se ocupa hacer
+                //TempData.Keep("ListaAsistencia");
 
                 ViewBag.Resultado = ListaAsistencia.Count();
             }

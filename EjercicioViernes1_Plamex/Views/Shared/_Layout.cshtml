@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="header">
-        @RenderSection("header")
+        @RenderSection("header", required:false)
     </div>
     <div id="lateralIzq">
         @RenderSection("lateralIzq", required: false)
@@ -28,7 +28,7 @@
         }
     </div>
     <div id="footer">
-        @RenderSection("footer")
+        @RenderSection("footer", required: false)
     </div>
 
     @RenderBody()

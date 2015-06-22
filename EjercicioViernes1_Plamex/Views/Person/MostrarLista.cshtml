@@ -15,7 +15,7 @@
     </thead>
     <tbody>
 
-        @foreach (var item in ViewBag.ListaAsistencia)
+        @foreach (var item in (TempData["ListaAsistencia"] as List<EjercicioViernes1_Plamex.Models.Person>))
         {
 
             <tr>
@@ -29,4 +29,4 @@
 
 @*@Html.ActionLink("Envio de Datos Redirect", "RedireccionarLista", "Person")*@
 <br />
-@Html.ActionLink("Envio de Datos Direct", "ComprobarLista", "Person")
+@Html.ActionLink("Envio de Datos Direct", "RedireccionarLista", "Person")
