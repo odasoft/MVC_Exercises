@@ -15,10 +15,12 @@ namespace EjercicioViernes1_Plamex.Models
         {
             List<Person> lPersons = new List<Person>();
 
-            lPersons.Add(new Person { Name = "Domingo Ramirez", Date = DateTime.Now, Assistance = true });
-            lPersons.Add(new Person { Name = "Brizna Rodriguez", Date = DateTime.Now, Assistance = true });
-            lPersons.Add(new Person { Name = "Ezequiel Ramirez", Date = DateTime.Now, Assistance = true });
-            lPersons.Add(new Person { Name = "Daniel Medrano", Date = DateTime.Now, Assistance = true });
+            Random rd = new Random();
+
+            lPersons.Add(new Person { Name = "Domingo Ramirez", Date = DateTime.Now.AddDays(rd.Next(10)), Assistance = true });
+            lPersons.Add(new Person { Name = "Brizna Rodriguez", Date = DateTime.Now.AddDays(rd.Next(10)), Assistance = false });
+            lPersons.Add(new Person { Name = "Ezequiel Ramirez", Date = DateTime.Now.AddDays(rd.Next(10)), Assistance = true });
+            lPersons.Add(new Person { Name = "Daniel Medrano", Date = DateTime.Now.AddDays(rd.Next(10)), Assistance = false });
 
             return lPersons;
         }

@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "MostrarLista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mostrar Lista</h2>
+
+<table class="table table table-condensed table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Fecha</td>
+            <td>Asistio</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.ListaAsistencia)
+        {
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Date</td>
+                <td>@item.Assistance</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@Html.ActionLink("Envio de Datos Redirect", "RedireccionarLista", "Person")*@
+<br />
+@Html.ActionLink("Envio de Datos Direct", "ComprobarLista", "Person")

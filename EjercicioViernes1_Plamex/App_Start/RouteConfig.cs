@@ -16,7 +16,7 @@ namespace EjercicioViernes1_Plamex
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Person", action = "MostrarLista", id = UrlParameter.Optional }
             );
         }
     }

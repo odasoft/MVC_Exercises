@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Comprobar Lista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Se recibio una lista con @ViewBag.Resultado empleados</h1>
+
+<br />
+
+@Html.ActionLink("Regresar a Mostrar Lista", "MostrarLista", "Person")
+
