@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using PomodoroOrders.Models;
 
 namespace PomodoroOrders.Business
 {
-    public class Repositorio_Bebida:IRepositorio
+    public class Repositorio_Bebida: IRepositorio<Bebida,List<SelectListItem>>
     {
         public List<Bebida> ObtenerBebidas()
         {
@@ -29,6 +30,14 @@ namespace PomodoroOrders.Business
             Lista_Bebidas.Add(new Bebida { Id = 3, NombreBebida = "Soda", Precio = 15 });
 
             return Lista_Bebidas;
+        }
+
+        public List<SelectListItem> RegresaElementosDrop(IEnumerable<Bebida> bebidas)
+        {
+            List<SelectListItem> items =  bebidas
+                .Select(bebida => new SelectListItem {Text = bebida.NombreBebida, Value = bebida.Id.ToString()})
+                .ToList();
+            return items;
         }
     }
 }

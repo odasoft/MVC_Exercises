@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using PomodoroOrders.Models;
 
 namespace PomodoroOrders.Business
 {
-    class Repositorio_Platillo
+    public class Repositorio_Platillo:IRepositorio<Platillo, List<SelectListItem>>
     {
         public List<Platillo> ObtenerPlatillos()
         {
@@ -20,6 +21,14 @@ namespace PomodoroOrders.Business
             Lista_Platillos.Add(new Platillo { Id = 4, PlatilloNombre = "Comida del dia (Incluye Bebida)", Precio = 80 });
 
             return Lista_Platillos;
+        }
+
+        public List<SelectListItem> RegresaElementosDrop(IEnumerable<Platillo> platillos)
+        {
+            List<SelectListItem> items = platillos
+               .Select(platillo => new SelectListItem { Text = platillo.PlatilloNombre, Value = platillo.Id.ToString() })
+               .ToList();
+            return items;
         }
     }
 }

@@ -15,23 +15,32 @@
         </div>
         <div>
 
-            @Html.DropDownList("ddBebidas", (List<SelectListItem>)Model.Bebidas)
+            @Html.DropDownList("ddlBebidas", Model.Bebidas)
         </div>
-        @*<div class=" ">
+        <div class=" ">
             @Html.Label("Selecciona Combo", new { id = "lblCombo" })
         </div>
         <div>
             
-            @Html.DropDownList("ddCombo")
+            @Html.DropDownList("ddlCombo",Model.Combos)
         </div>
         
+        
+        <div class=" ">
+            @Html.Label("Selecciona Platillos", new { id = "lblPlatillo" })
+        </div>
+        <div>
+
+            @Html.DropDownList("ddlPlatillo",Model.Platillos)
+        </div>
+
         <div class=" ">
             @Html.Label("Comentarios", new { id = "lblComentarios" })
         </div>
         <div>
            
             @Html.TextBox("txtComentarios")
-        </div>*@
+        </div>
         <div>
             <input type="submit" value="Generar Orden" />
         </div>

@@ -1,4 +1,5 @@
-﻿using PomodoroOrders.Models;
+﻿using System.Web.Mvc;
+using PomodoroOrders.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PomodoroOrders.Business
 {
-    class Repositorio_Combo
+    public class Repositorio_Combo : IRepositorio<Combo, List<SelectListItem>>
     {
         public List<Combo> ObtenerCombos()
         {
@@ -18,6 +19,15 @@ namespace PomodoroOrders.Business
             Lista_Combos.Add(new Combo { Id = 3, NombreCombo = "Combo #3 (Platillo + Especial + Bebida)", Precio = 80 });
 
             return Lista_Combos;
+        }
+
+     
+        public List<SelectListItem> RegresaElementosDrop(IEnumerable<Combo> combos)
+        {
+            List<SelectListItem> items = combos
+                .Select(combo => new SelectListItem { Text = combo.NombreCombo, Value = combo.Id.ToString() })
+                .ToList();
+            return items;
         }
     }
 }

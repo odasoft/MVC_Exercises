@@ -14,28 +14,20 @@ namespace PomodoroOrders.Controllers
         // GET: Pomodoro
         public ActionResult Index()
         {
-            Repositorio_Bebida rb = new Repositorio_Bebida();
-            var itemsBebidas = rb.RegresaBebidas();
-            OrdenViewModel ovm = new OrdenViewModel();
-            ovm.Bebidas = RegresaItems();
+            var rb = new Repositorio_Bebida();
+            var rp = new Repositorio_Platillo();
+            var rc = new Repositorio_Combo();
 
-            //ViewBag.Bebidas = itemsBebidas;
+            var ovm = new OrdenViewModel();
+
+            ovm.Bebidas =  rb.RegresaElementosDrop(rb.ObtenerBebidas());
+            ovm.Platillos = rp.RegresaElementosDrop(rp.ObtenerPlatillos());
+            ovm.Combos = rc.RegresaElementosDrop(rc.ObtenerCombos());
+            
 
             return View(ovm);
         }
-        public List<SelectListItem> RegresaItems()
-        {
-            Repositorio_Bebida rb = new Repositorio_Bebida();
-            var listaBebidas = rb.ObtenerBebidas();
-            List<SelectListItem> items = new List<SelectListItem>();
-            foreach (var x in listaBebidas)
-            {
-                items.Add(new SelectListItem { Text = string.Format("{0} (${1})", x.NombreBebida, x.Precio.ToString()), Value = x.Id.ToString() });
-            }
-
-            return items;
-        }
-
+       
        
     }
 }
