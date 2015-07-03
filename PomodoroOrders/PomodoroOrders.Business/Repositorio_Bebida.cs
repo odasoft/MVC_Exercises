@@ -14,9 +14,9 @@ namespace PomodoroOrders.Business
         {
             List<Bebida> Lista_Bebidas = new List<Bebida>();
 
-            Lista_Bebidas.Add(new Bebida { Id = 1, NombreBebida = "Te Limon", Precio = 10 });
-            Lista_Bebidas.Add(new Bebida { Id = 2, NombreBebida = "Agua de Fresa", Precio = 12 });
-            Lista_Bebidas.Add(new Bebida { Id = 3, NombreBebida = "Soda", Precio = 15 });
+            Lista_Bebidas.Add(new Bebida { Id = 1, Nombre = "Te Limon", Precio = 10 });
+            Lista_Bebidas.Add(new Bebida { Id = 2, Nombre = "Agua de Fresa", Precio = 12 });
+            Lista_Bebidas.Add(new Bebida { Id = 3, Nombre = "Soda", Precio = 15 });
 
             return Lista_Bebidas;
         }
@@ -25,9 +25,9 @@ namespace PomodoroOrders.Business
         {
             var Lista_Bebidas = new List<Bebida>();
 
-            Lista_Bebidas.Add(new Bebida { Id = 1, NombreBebida = "Te Limon", Precio = 10 });
-            Lista_Bebidas.Add(new Bebida { Id = 2, NombreBebida = "Agua de Fresa", Precio = 12 });
-            Lista_Bebidas.Add(new Bebida { Id = 3, NombreBebida = "Soda", Precio = 15 });
+            Lista_Bebidas.Add(new Bebida { Id = 1, Nombre= "Te Limon", Precio = 10 });
+            Lista_Bebidas.Add(new Bebida { Id = 2, Nombre= "Agua de Fresa", Precio = 12 });
+            Lista_Bebidas.Add(new Bebida { Id = 3, Nombre= "Soda", Precio = 15 });
 
             return Lista_Bebidas;
         }
@@ -35,7 +35,7 @@ namespace PomodoroOrders.Business
         public List<SelectListItem> RegresaElementosDrop(IEnumerable<Bebida> bebidas)
         {
             List<SelectListItem> items =  bebidas
-                .Select(bebida => new SelectListItem {Text = bebida.NombreBebida, Value = bebida.Id.ToString()})
+                .Select(bebida => new SelectListItem {Text = bebida.Nombre, Value = bebida.Id.ToString()})
                 .ToList();
             return items;
         }

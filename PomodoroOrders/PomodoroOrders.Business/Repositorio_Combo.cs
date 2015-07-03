@@ -14,9 +14,9 @@ namespace PomodoroOrders.Business
         {
             List<Combo> Lista_Combos = new List<Combo>();
 
-            Lista_Combos.Add(new Combo { Id = 1, NombreCombo = "Combo #1 (Platillo + Sopa + Bebida)", Precio = 70 });
-            Lista_Combos.Add(new Combo { Id = 2, NombreCombo = "Combo #2 (Platillo + Ensalada + Bebida)", Precio = 75 });
-            Lista_Combos.Add(new Combo { Id = 3, NombreCombo = "Combo #3 (Platillo + Especial + Bebida)", Precio = 80 });
+            Lista_Combos.Add(new Combo { Id = 1, Nombre = "Combo #1 (Platillo + Sopa + Bebida)", Precio = 70 });
+            Lista_Combos.Add(new Combo { Id = 2, Nombre = "Combo #2 (Platillo + Ensalada + Bebida)", Precio = 75 });
+            Lista_Combos.Add(new Combo { Id = 3, Nombre = "Combo #3 (Platillo + Especial + Bebida)", Precio = 80 });
 
             return Lista_Combos;
         }
@@ -25,7 +25,7 @@ namespace PomodoroOrders.Business
         public List<SelectListItem> RegresaElementosDrop(IEnumerable<Combo> combos)
         {
             List<SelectListItem> items = combos
-                .Select(combo => new SelectListItem { Text = combo.NombreCombo, Value = combo.Id.ToString() })
+                .Select(combo => new SelectListItem { Text = combo.Nombre, Value = combo.Id.ToString() })
                 .ToList();
             return items;
         }
