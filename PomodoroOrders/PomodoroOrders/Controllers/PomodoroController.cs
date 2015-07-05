@@ -31,5 +31,16 @@ namespace PomodoroOrders.Controllers
         {
             return PartialView("_VistaParcial");
         }
+
+
+        [HttpPost]
+        public ActionResult RecibirOrden(OrdenViewModel Seleccion)
+        {
+            Repositorio_Carrito c = new Repositorio_Carrito();
+            return PartialView("_VistaParcial", c.Agregar(Seleccion));
+        }
+
+
+
     }
 }
