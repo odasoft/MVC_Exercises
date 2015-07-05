@@ -24,10 +24,12 @@ namespace PomodoroOrders.Controllers
             ovm.Platillos = rp.RegresaElementosDrop(rp.ObtenerPlatillos());
             ovm.Combos = rc.RegresaElementosDrop(rc.ObtenerCombos());
             
-
             return View(ovm);
         }
-       
-       
+
+        public ActionResult VistaParcial()
+        {
+            return PartialView("_VistaParcial");
+        }
     }
 }
