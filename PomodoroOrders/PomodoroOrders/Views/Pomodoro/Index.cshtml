@@ -1,28 +1,39 @@
 ﻿@model PomodoroOrders.ViewModels.OrdenViewModel
 @{
     ViewBag.Title = "Index";
-}
 
+}
+@*@using PomodoroOrders.Helpers*@
 <h2>Pomodoro Express</h2>
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm("RecibirOrden", "Pomodoro", FormMethod.Post, new {id="frmCrearOrden"}))
+{  
     @Html.ValidationSummary(true)
     <fieldset>
         <legend> Haz tu orden!!</legend>
 
         <div class=" ">
+            @*<p>
+                @MisHelpers.LabelStrong("Soy el string negrito ")
+            </p>
+       
+            <p>
+                @Html.LabelStrongExtended("Extension de texto en negrita")
+            </p>*@
             @Html.Label("Selecciona Bebida", new { id = "lblBebida" })
+          
         </div>
         <div>
 
-            @Html.DropDownList("ddlBebidas", Model.Bebidas)
+            @Html.DropDownList("ddlBebidas", Model.Bebidas, new { id = "ddlBebidas" })
+            @Html.TextBox("txtCantBebidas")
         </div>
         <div class=" ">
             @Html.Label("Selecciona Combo", new { id = "lblCombo" })
         </div>
         <div>
             
-            @Html.DropDownList("ddlCombo",Model.Combos)
+            @Html.DropDownList("ddlCombo", Model.Combos, new { id = "ddlCombo" })
+            @Html.TextBox("txtCantCombo")
         </div>
         
         
@@ -31,7 +42,8 @@
         </div>
         <div>
 
-            @Html.DropDownList("ddlPlatillo",Model.Platillos)
+            @Html.DropDownList("ddlPlatillo", Model.Platillos, new { id = "ddlPlatillo" })
+            @Html.TextBox("txtCantBebidas")
         </div>
 
         <div class=" ">
@@ -39,12 +51,56 @@
         </div>
         <div>
            
-            @Html.TextBox("txtComentarios")
+            @Html.TextArea("txtComentarios")
         </div>
-        <div>
-            <input type="submit" value="Generar Orden" />
-        </div>
+       
+        @*<div>
+            @Html.Partial("_VistaParcial")
+            @{
+             Html.RenderPartial("_VistaParcial");
+            }
+        </div>*@
         
+        <div id="partialViewContent"  style="float:right">
+
+        </div>
+        <br />
+        <div>
+            <input id="btnAgregaAOrden" type="button" value="Agregar a Orden" />
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+      
+        <script type="text/javascript" >
+            $(document).ready(function () {
+                $.get('@Url.Action("VistaParcial", "Pomodoro")', function (r) {
+                    $('#partialViewContent').html(r);
+
+                });
+                $.ajax({
+                    url: '@Url.Action("VistaParcial", "Pomodoro")',
+                    contentType: 'application/html;charset=utf-8',
+                    type: 'GET',
+                    dataType: 'html'
+                })
+                $("#btnAgregaAOrden").on("click", function (r) {
+                    $.post('@Url.Action("RecibirOrden","Pomodoro")', $("#frmCrearOrden").serialize(), function (r) {
+                        alert(r);
+                    });
+
+                });
+                var newOption = "<option value=0 " +   "selected=true"+">Select a value</option>";0
+                $("#ddlBebidas").append(newOption);
+                $("#ddlPlatillo").append(newOption);
+                $("#ddlCombo").append(newOption);
+
+
+
+            });
+
+            //$.get('/Pomodoro/VistaParcial', function (result) {
+            //    alert('Hola alerta');   //$('#partialViewContent').html(result);
+            //});
+        </script>
     </fieldset>
 }
 
