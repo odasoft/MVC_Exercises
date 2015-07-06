@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PomodoroOrders.Business;
+using PomodoroOrders.Models;
 
 namespace PomodoroOrders.Controllers
 {
@@ -10,7 +12,9 @@ namespace PomodoroOrders.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            Repositorio_Orden o = new Repositorio_Orden();          
+
+            return View(o.ObtenerLista());
         }
 
         public ActionResult About()
