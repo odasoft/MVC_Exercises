@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PomodoroOrders.Business
 {
-    class Repositorio_Orden
+    public class Repositorio_Orden
     {
         public Orden Crear()
         {
