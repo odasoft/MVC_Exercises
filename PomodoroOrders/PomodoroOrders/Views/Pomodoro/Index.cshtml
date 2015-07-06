@@ -1,6 +1,8 @@
 ﻿@model PomodoroOrders.ViewModels.OrdenViewModel
+@using PomodoroOrders.Helpers
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Pomodoro Express</h2>
@@ -9,6 +11,11 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend> Haz tu orden!!</legend>
+
+        @MisHelpers.LabelStrong("Soy el string negrito")
+        <p>Soy un string no negrito</p>
+        <p>@Html.LabelStrongExtended("El ejemplo extendido")</p>
+
 
         <div class=" ">
             @Html.Label("Selecciona Bebida", new { id = "lblBebida" })
@@ -41,10 +48,46 @@
            
             @Html.TextBox("txtComentarios")
         </div>
+
+        <div>
+            @Html.Partial("_VistaParcial")
+
+            @{
+                 Html.RenderPartial("_VistaParcial");
+            }
+
+        </div>
+        <div id="partialViewContent"></div>
         <div>
             <input type="submit" value="Generar Orden" />
         </div>
         
+
+        
+
     </fieldset>
 }
 
+@Scripts.Render("~/bundles/jquery")
+
+<script type="text/javascript">
+    //$('#partialViewContent').load('~/Views/Pomodoro/_VistaParcial.cshtml');
+
+
+    $.get('/Pomodoro/VistaParcial', function (result) {
+        $('#partialViewContent').html(result);
+    });
+
+    $('#partialViewContent').load('@Url.Action("VistaParcial","Pomodoro")');
+
+
+    $.ajax({
+        url: '@Url.Action("VistaParcial","Pomodoro")',
+        contentType: 'aplication/html;charset=utf-8',
+        type: 'GET',
+        dataType: 'html'
+    }).success(function (data) {
+        $('#partialViewContent').html(data);
+    });
+
+</script>
