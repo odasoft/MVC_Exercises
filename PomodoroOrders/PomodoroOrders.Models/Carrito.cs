@@ -10,6 +10,7 @@ namespace PomodoroOrders.Models
     {
         public int IdCarrito { get; set; }
         public int IdPlatillo{ get; set; }
+        public int IdPlatillo { get; set; }
         public int Cantidad { get; set; }
         public decimal SubTotal { get; set; } 
 

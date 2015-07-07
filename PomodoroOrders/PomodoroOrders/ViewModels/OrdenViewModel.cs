@@ -8,8 +8,8 @@ namespace PomodoroOrders.ViewModels
 {
     public class OrdenViewModel
     {
-        public Platillo Platillos { get; set; }
-        public Combo Combos { get; set; }
+        public List<SelectListItem> Platillos { get; set; }
+        public List<SelectListItem>Combos { get; set; }
         public List<SelectListItem> Bebidas { get; set; }
     }
 }
