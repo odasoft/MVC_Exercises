@@ -11,5 +11,7 @@ namespace PomodoroOrders.ViewModels
         public List<SelectListItem> Platillos { get; set; }
         public List<SelectListItem>Combos { get; set; }
         public List<SelectListItem> Bebidas { get; set; }
+        public Carrito Carrito { get; set; }
+
     }
 }
