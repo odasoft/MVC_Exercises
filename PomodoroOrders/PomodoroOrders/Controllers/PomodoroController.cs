@@ -25,13 +25,52 @@ namespace PomodoroOrders.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult RecibirOrden(OrdenViewModel Seleccion)
-        {
-            Repositorio_Carrito c = new Repositorio_Carrito();
-            return PartialView("_VistaParcial", c.Agregar(Seleccion));
-        }
+        //[HttpPost]
+        //public ActionResult RecibirOrden(OrdenViewModel Seleccion)
+        //{
+        //    Repositorio_Carrito c = new Repositorio_Carrito();
+        //    //return PartialView("_VistaParcial", c.Agregar(Seleccion));
+        //}
 
+        public ActionResult AgregaraCarrito()
+        {
+            Repositorio_Carrito rc = new Repositorio_Carrito();
+            DetalleCarritoBusiness dc = new DetalleCarritoBusiness();
+            List<Producto> productos = new List<Producto>();
+
+            //simulando un platillo, cantidad
+            //simulando una bebida, cantidad 
+            //simulando un combo , cantidad
+            Platillo p = new Platillo();
+            p.Id = 2;
+            p.Nombre="Sandwich Pollo";
+            p.Precio=5;
+            
+            Bebida b = new Bebida();
+            b.Id = 2;
+            b.Nombre="Te";
+            b.Precio=15;
+
+            productos.Add(p);
+            productos.Add(b);
+
+            var carrito = new Carrito { IdCarrito = 1, FechaCreacion = DateTime.Now };
+            rc.Agregar(carrito);
+
+            foreach (var producto in productos)
+            {
+                dc.InsertaDetalleCarrito(carrito, producto, 3, TipoProducto.Platillo);
+
+            }
+           // return RedirectToAction("Index", "Pomodoro");
+
+            
+          
+
+
+          
+            return Content("Probando Insert...");
+        }
 
 
     }

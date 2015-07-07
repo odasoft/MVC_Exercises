@@ -3,7 +3,16 @@
     ViewBag.Title = "Index";
 }
 
+<<<<<<< HEAD
 <h2>Index</h2>
+=======
+<h2>Pomodoro Express</h2>
+@using (Html.BeginForm("RecibirOrden", "Pomodoro", FormMethod.Post, new { id="frmOrden"}))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend> Haz tu orden!!</legend>
+>>>>>>> bb94e9ef94b4ffb8f602917d6573ec77e4922d90
 
 
 <table class="table table-striped table-bordered">
@@ -20,7 +29,79 @@
               </tr>
 
 
+<<<<<<< HEAD
         }
 
    
 </table>
+=======
+            @Html.DropDownList("ddlBebidas", Model.Bebidas)
+        </div>
+        <div class=" ">
+            @Html.Label("Selecciona Combo", new { id = "lblCombo" })
+        </div>
+        <div>
+            
+            @Html.DropDownList("ddlCombo", Model.Combos)
+        </div>
+        
+        
+        <div class=" ">
+            @Html.Label("Selecciona Platillos", new { id = "lblPlatillo" })
+        </div>
+        <div>
+
+            @Html.DropDownList("ddlPlatillo", Model.Platillos)
+        </div>
+
+        <div class=" ">
+            @Html.Label("Comentarios", new { id = "lblComentarios" })
+        </div>
+        <div>
+           
+            @Html.TextBox("txtComentarios")
+        </div>
+
+        <div>
+            @Html.Partial("_VistaParcial")
+
+            @{
+    Html.RenderPartial("_VistaParcial");
+            }
+
+        </div>
+        <div id="partialViewContent"></div>
+        <div>
+            <input type="submit" value="Generar Orden" />
+        </div>
+        
+
+        
+
+    </fieldset>
+}
+
+@Scripts.Render("~/bundles/jquery")
+
+<script type="text/javascript">
+    //$('#partialViewContent').load('~/Views/Pomodoro/_VistaParcial.cshtml');
+
+
+    $.get('/Pomodoro/VistaParcial', function (result) {
+        $('#partialViewContent').html(result);
+    });
+
+    $('#partialViewContent').load('@Url.Action("VistaParcial","Pomodoro")');
+
+
+    $.ajax({
+        url: '@Url.Action("VistaParcial","Pomodoro")',
+        contentType: 'aplication/html;charset=utf-8',
+        type: 'GET',
+        dataType: 'html'
+    }).success(function (data) {
+        $('#partialViewContent').html(data);
+    });
+
+</script>
+>>>>>>> bb94e9ef94b4ffb8f602917d6573ec77e4922d90
