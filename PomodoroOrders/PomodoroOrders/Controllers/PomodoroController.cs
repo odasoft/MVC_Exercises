@@ -14,17 +14,9 @@ namespace PomodoroOrders.Controllers
         // GET: Pomodoro
         public ActionResult Index()
         {
-            var rb = new Repositorio_Bebida();
-            var rp = new Repositorio_Platillo();
-            var rc = new Repositorio_Combo();
-
-            var ovm = new OrdenViewModel();
-
-            ovm.Bebidas =  rb.RegresaElementosDrop(rb.ObtenerBebidas());
-            ovm.Platillos = rp.RegresaElementosDrop(rp.ObtenerPlatillos());
-            ovm.Combos = rc.RegresaElementosDrop(rc.ObtenerCombos());
+            Repositorio_Orden o = new Repositorio_Orden();
             
-            return View(ovm);
+            return View(o.ObtenerLista());
         }
 
         public ActionResult VistaParcial()
