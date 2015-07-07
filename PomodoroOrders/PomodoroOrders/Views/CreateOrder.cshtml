@@ -1,0 +1,109 @@
+﻿@model PomodoroOrders.ViewModels.OrdenViewModel
+@using PomodoroOrders.Helpers
+@{
+    ViewBag.Title = "CreateOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pomodoro Express</h2>
+@using (Html.BeginForm("RecibirOrden", "Pomodoro", FormMethod.Post, new { id = "frmOrden" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend> Haz tu orden!!</legend>
+
+        @MisHelpers.LabelStrong("Soy el string negrito")
+        <p>Soy un string no negrito</p>
+        <p>@Html.LabelStrongExtended("El ejemplo extendido")</p>
+
+
+        <div class=" ">
+            @Html.Label("Selecciona Bebida", new { id = "lblBebida" })
+        </div>
+        <div>
+
+            @Html.DropDownListFor(bebida => bebida.Bebidas, Model.Bebidas, new { id = "ddlBebidas" })
+            @Html.TextBoxFor(cantBebidas =>  "txtCantBebidas")
+        </div>
+        <div class=" ">
+            @Html.Label("Selecciona Combo", new { id = "lblCombo" })
+        </div>
+        <div>
+
+            @Html.DropDownListFor(combo => combo.Combos, Model.Combos, new { id = "ddlCombos" })
+            @Html.TextBox("txtCantCombo")
+        </div>
+
+
+        <div class=" ">
+            @Html.Label("Selecciona Platillos", new { id = "lblPlatillo" })
+        </div>
+        <div>
+
+            @Html.DropDownListFor(platillo => platillo.Platillos, Model.Platillos, new { id = "ddlPlatillos" })
+            @Html.TextBox("txtCantPlatillo")
+        </div>
+
+        <div class=" ">
+            @Html.Label("Comentarios", new { id = "lblComentarios" })
+        </div>
+        <div>
+
+            @Html.TextArea("txtComentarios")
+        </div>
+
+        <div>
+            @Html.Partial("_VistaParcial")
+
+            @{
+    Html.RenderPartial("_VistaParcial");
+            }
+
+        </div>
+        <div id="partialViewContent" style="float:right">
+        </div>
+        <div>
+            <input id="btnAgregaAOrden" type="button" value="Agregar a Orden" />
+        </div>
+
+
+
+
+    </fieldset>
+}
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.get('@Url.Action("VistaParcial", "Pomodoro")', function (r) {
+                $('#partialViewContent').html(r);
+
+            });
+            $.ajax({
+                url: '@Url.Action("VistaParcial", "Pomodoro")',
+                contentType: 'application/html;charset=utf-8',
+                type: 'GET',
+                dataType: 'html'
+            })
+            $("#btnAgregaAOrden").on("click", function (r) {
+                $.post('@Url.Action("RecibirOrden","Pomodoro")', $("#frmCrearOrden").serialize(), function (r) {
+                    alert(r);
+                });
+
+            });
+            var newOption = "<option value=0 " + "selected=true" + ">Select a value</option>"; 0
+            $("#ddlBebidas").append(newOption);
+            $("#ddlPlatillo").append(newOption);
+            $("#ddlCombo").append(newOption);
+
+
+
+        });
+
+        //$.get('/Pomodoro/VistaParcial', function (result) {
+        //    alert('Hola alerta');   //$('#partialViewContent').html(result);
+        //});
+    </script>

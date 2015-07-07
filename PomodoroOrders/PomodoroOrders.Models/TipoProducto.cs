@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace PomodoroOrders.Models
 {
-    public class Carrito
+    public enum TipoProducto
     {
-        public int IdCarrito { get; set; }
-        public DateTime FechaCreacion { get; set; }
+        Platillo =1,
+        Combo,
+        Bebida
     }
 }

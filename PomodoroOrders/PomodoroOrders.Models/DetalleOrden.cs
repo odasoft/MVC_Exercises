@@ -8,8 +8,8 @@ namespace PomodoroOrders.Models
 {
     public class DetalleOrden
     {
-        public int IdOrden { get; set; } 
-        public DateTime fecha { get; set; }
-        public decimal Total { get; set; } 
+        public int IdDetalleOrden { get; set; }
+        public int IdOrden { get; set; }
+        public int IdCarrito { get; set; }
     }
 }

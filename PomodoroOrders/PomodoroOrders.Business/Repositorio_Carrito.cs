@@ -10,11 +10,10 @@ namespace PomodoroOrders.Business
 {
     public class Repositorio_Carrito
     {
-        public List<Carrito> Agregar(object ovm)
+        public Carrito Agregar(Carrito c)
         {
-            List<Carrito> ListaItems = new List<Carrito>();
 
-            return ListaItems;
+            return new Carrito();
         }
     }
 }

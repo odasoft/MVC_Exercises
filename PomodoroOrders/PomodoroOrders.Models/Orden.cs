@@ -9,7 +9,7 @@ namespace PomodoroOrders.Models
     public class Orden
     {
         public int IdOrden { get; set; }
-        public int IdCarrito { get; set; } 
- 
+        public DateTime Fecha { get; set; }
+
     }
 }
