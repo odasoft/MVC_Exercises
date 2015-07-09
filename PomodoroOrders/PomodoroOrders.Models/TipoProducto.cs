@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PomodoroOrders.Models
 {
-    public class DetalleOrden
+    public enum TipoProducto
     {
-        public int IdDetalleOrden { get; set; }
-        public int IdOrden { get; set; } 
-        
+        Platillo=0,
+        Bebida,
+        Combos
     }
 }
