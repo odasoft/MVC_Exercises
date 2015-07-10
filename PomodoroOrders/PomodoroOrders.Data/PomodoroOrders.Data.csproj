@@ -50,6 +50,10 @@
     <Compile Include="Migrations\201507102302374_AlterModeloOrden_ModeloCarrito.Designer.cs">
       <DependentUpon>201507102302374_AlterModeloOrden_ModeloCarrito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507102349423_CambiosDetalleCarrito.cs" />
+    <Compile Include="Migrations\201507102349423_CambiosDetalleCarrito.Designer.cs">
+      <DependentUpon>201507102349423_CambiosDetalleCarrito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PomodoroDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +71,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507102302374_AlterModeloOrden_ModeloCarrito.resx">
       <DependentUpon>201507102302374_AlterModeloOrden_ModeloCarrito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507102349423_CambiosDetalleCarrito.resx">
+      <DependentUpon>201507102349423_CambiosDetalleCarrito.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
