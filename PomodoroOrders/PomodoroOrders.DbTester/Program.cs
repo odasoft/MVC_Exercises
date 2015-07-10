@@ -14,7 +14,7 @@ namespace PomodoroOrders.DbTester
         {
             var nuevaBebida = new Bebida {Id = 1, Nombre = "Te", Precio = 50.12m};
             var context = new PomodoroDbContext();
-            context.Bebidas.Add(nuevaBebida);
+            context.Productos.Add(nuevaBebida);
             context.SaveChanges();
             Console.WriteLine("Bebida insertada");
             Console.Read();
