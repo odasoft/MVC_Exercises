@@ -12,7 +12,7 @@ namespace PomodoroOrders.DbTester
     {
         static void Main(string[] args)
         {
-            var nuevaBebida = new Bebida {Id = 1, NombreBebida = "Te", Precio = 50.12m};
+            var nuevaBebida = new Bebida {Id = 1, Nombre = "Te", Precio = 50.12m};
             var context = new PomodoroDbContext();
             context.Bebidas.Add(nuevaBebida);
             context.SaveChanges();
