@@ -3,39 +3,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Pomodoro Express</h2>
+<h2>Lista de Ordenes</h2>
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend> Haz tu orden!!</legend>
 
-        <div class=" ">
-            @Html.Label("Selecciona Bebida", new { id = "lblBebida" })
-        </div>
-        <div>
-
-            @Html.DropDownList("ddBebidas", (List<SelectListItem>)Model.Bebidas)
-        </div>
-        @*<div class=" ">
-            @Html.Label("Selecciona Combo", new { id = "lblCombo" })
-        </div>
-        <div>
-            
-            @Html.DropDownList("ddCombo")
-        </div>
-        
-        <div class=" ">
-            @Html.Label("Comentarios", new { id = "lblComentarios" })
-        </div>
-        <div>
-           
-            @Html.TextBox("txtComentarios")
-        </div>*@
-        <div>
-            <input type="submit" value="Generar Orden" />
-        </div>
-        
-    </fieldset>
 }
 
