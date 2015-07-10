@@ -7,7 +7,11 @@ using PomodoroOrders.Models;
 
 namespace PomodoroOrders.Business
 {
-    class Repositorio_Carrito
+    public class Repositorio_Carrito
     {
+        public Carrito CrearCarrito()
+        {
+            return new Carrito { IdCarrito = 1, FechaCreacion = DateTime.Now };
+        }
     }
 }
