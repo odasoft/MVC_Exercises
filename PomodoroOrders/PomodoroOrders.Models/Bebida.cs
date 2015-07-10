@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace PomodoroOrders.Models
 {
-    public class Bebida
+    public class Bebida:Producto
     {
-        public int Id { get; set; }
-        public string NombreBebida { get; set; }
-        public decimal Precio { get; set; }
+       
     }
 }
