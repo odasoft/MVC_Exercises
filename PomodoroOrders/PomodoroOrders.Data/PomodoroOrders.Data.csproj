@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CCFBBAC2-9B29-45C6-B67A-A803E2F8EB3E}</ProjectGuid>
+    <ProjectGuid>{D3D1E0C8-AFE9-4C08-8C62-265FF6B4950F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PomodoroOrders.Models</RootNamespace>
-    <AssemblyName>PomodoroOrders.Models</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>PomodoroOrders.Data</RootNamespace>
+    <AssemblyName>PomodoroOrders.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,8 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bebida.cs" />
+    <Compile Include="PomodoroDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PomodoroOrders.Models\PomodoroOrders.Models.csproj">
+      <Project>{ccfbbac2-9b29-45c6-b67a-a803e2f8eb3e}</Project>
+      <Name>PomodoroOrders.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
