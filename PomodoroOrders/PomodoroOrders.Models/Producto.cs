@@ -8,7 +8,7 @@ namespace PomodoroOrders.Models
 {
     public abstract class Producto
     {
-        public int Id { get; set; }
+        public int Id { get; set; } //NombreClaseId
         public TipoProducto TipoProducto { get; set; }
         public string Nombre { get; set; }
         public decimal Precio { get; set; }

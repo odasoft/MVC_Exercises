@@ -9,8 +9,8 @@ namespace PomodoroOrders.Models
     public class DetalleCarrito
     {
         public int DetalleCarritoId { get; set; }
-        public int IdCarrito { get; set; }
-        public int IdProducto { get; set; }
+        public int CarritoId{ get; set; }
+        public int ProductoId { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
         public decimal Subtotal { get; set; }
