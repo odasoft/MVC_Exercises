@@ -11,7 +11,7 @@ namespace PomodoroOrders.Business
     {
         public Carrito CrearCarrito()
         {
-            return new Carrito { IdCarrito = 1, FechaCreacion = DateTime.Now };
+            return new Carrito { CarritoId = 1, FechaCreacion = DateTime.Now };
         }
     }
 }

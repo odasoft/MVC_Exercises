@@ -8,8 +8,9 @@ namespace PomodoroOrders.Models
 {
     public class Orden
     {
-        public int IdOrden { get; set; }
-        public int IdCarrito { get; set; } 
+        public int OrdenId { get; set; }
+        public int IdCarrito { get; set; }
+        public int IdAsociado { get; set; }
  
     }
 }

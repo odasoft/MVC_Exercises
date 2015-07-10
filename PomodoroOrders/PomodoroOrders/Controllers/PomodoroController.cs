@@ -30,7 +30,7 @@ namespace PomodoroOrders.Controllers
             List<SelectListItem> items = new List<SelectListItem>();
             foreach (var x in listaBebidas)
             {
-                items.Add(new SelectListItem { Text = string.Format("{0} (${1})", x.NombreBebida, x.Precio.ToString()), Value = x.Id.ToString() });
+                items.Add(new SelectListItem { Text = string.Format("{0} (${1})", x.Nombre, x.Precio.ToString()), Value = x.Id.ToString() });
             }
 
             return items;
