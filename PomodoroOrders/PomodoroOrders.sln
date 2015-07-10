@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PomodoroOrders.Business", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dlls", "Dlls", "{D5E2932C-528E-47CB-8415-F4EF72BE2AA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PomodoroOrders.Data", "PomodoroOrders.Data\PomodoroOrders.Data.csproj", "{D3D1E0C8-AFE9-4C08-8C62-265FF6B4950F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PomodoroOrders.DbTester", "PomodoroOrders.DbTester\PomodoroOrders.DbTester.csproj", "{0EB26900-0014-4E55-9CEE-658F71358226}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{5FD623DC-7AB7-410D-9781-FCF272748708}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FD623DC-7AB7-410D-9781-FCF272748708}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FD623DC-7AB7-410D-9781-FCF272748708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3D1E0C8-AFE9-4C08-8C62-265FF6B4950F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3D1E0C8-AFE9-4C08-8C62-265FF6B4950F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3D1E0C8-AFE9-4C08-8C62-265FF6B4950F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3D1E0C8-AFE9-4C08-8C62-265FF6B4950F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EB26900-0014-4E55-9CEE-658F71358226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EB26900-0014-4E55-9CEE-658F71358226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EB26900-0014-4E55-9CEE-658F71358226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EB26900-0014-4E55-9CEE-658F71358226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
